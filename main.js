@@ -23,7 +23,7 @@ async function executar() {
     await manga.save();
 
     const mangas = await Manga.find();
-    console.log('📚 Mangás:');
+    console.log('Mangás:');
     mangas.forEach(m => console.log(m.titulo, '-', m.autor));
 
     await Manga.deleteOne({ titulo: 'One Piece' });
