@@ -8,10 +8,8 @@ const rotas = require('./routes/index');
 
 const app = express();
 
-// Conectar ao banco
 conectarBanco();
 
-// Configurar view engine
 app.engine('handlebars', exphbs.engine({
   defaultLayout: 'main',
   runtimeOptions: {
@@ -21,7 +19,6 @@ app.engine('handlebars', exphbs.engine({
 }));
 app.set('view engine', 'handlebars');
 
-// Middlewares
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({
@@ -31,10 +28,8 @@ app.use(session({
     cookie: { maxAge: 60000 }
 }));
 
-// Rotas
 app.use('/', rotas);
 
-// Iniciar servidor
 const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`Servidor rodando em http://localhost:${PORT}`);

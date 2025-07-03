@@ -9,7 +9,6 @@ async function conectarBanco() {
     await mongoose.connect(process.env.MONGO_URI);
     console.log('Conectado ao MongoDB');
 
-    // Criar usuário admin se não existir
     const existe = await Usuario.findOne({ usuario: 'admin' });
     if (!existe) {
       const senhaHash = await bcrypt.hash('123', 10);

@@ -1,5 +1,10 @@
 # trabalhoFacu
-Trabalho back-end 1
+Trabalho back-end 2
+
+RODAR PRIMEIRO popularDB.js depois app.js 
+
+Conta: Admin
+Senha: 123
 
 João Victor Vieira dos Anjos
 2311500

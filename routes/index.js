@@ -6,12 +6,10 @@ const Manga = require('../models/manga');
 
 const router = express.Router();
 
-// Página de login
 router.get('/login', (req, res) => {
     res.render('login');
 });
 
-// Processar login
 router.post('/login', async (req, res) => {
     const { usuario, senha } = req.body;
     const user = await Usuario.findOne({ usuario });
@@ -24,13 +22,11 @@ router.post('/login', async (req, res) => {
     }
 });
 
-// Página protegida
 router.get('/', checkLogin, async (req, res) => {
     const mangas = await Manga.find().lean();
     res.render('index', { mangas });
 });
 
-// Logout
 router.get('/logout', (req, res) => {
     req.session.destroy();
     res.redirect('/login');

@@ -9,15 +9,13 @@ async function executar() {
 
   try {
     await Manga.deleteMany({});
-    // Inserir categoria
+
     const cat = new Categoria({ nome: 'Shounen', descricao: 'Ação e aventura para jovens' });
     await cat.save();
 
-    // Inserir cliente
     const cliente = new Cliente({ nome: 'João', email: 'joao@example.com' });
     await cliente.save();
 
-    // Inserir mangás
     await Manga.create([
       {
         titulo: 'One Piece',
