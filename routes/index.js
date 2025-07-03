@@ -2,6 +2,7 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const Usuario = require('../models/Usuario');
 const checkLogin = require('../middleware/checkLogin');
+const Manga = require('../models/manga');
 
 const router = express.Router();
 
@@ -24,8 +25,9 @@ router.post('/login', async (req, res) => {
 });
 
 // Página protegida
-router.get('/', checkLogin, (req, res) => {
-    res.render('index');
+router.get('/', checkLogin, async (req, res) => {
+    const mangas = await Manga.find().lean();
+    res.render('index', { mangas });
 });
 
 // Logout

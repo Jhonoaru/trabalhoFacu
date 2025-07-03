@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 
-const mangaSchema = new mongoose.Schema({
+const MangaSchema = new mongoose.Schema({
   titulo: String,
+  descricao: String,
   autor: String,
   preco: Number,
   categoria: String
 });
 
-module.exports = mongoose.model('Manga', mangaSchema);
+module.exports = mongoose.model('Manga', MangaSchema);

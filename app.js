@@ -12,7 +12,13 @@ const app = express();
 conectarBanco();
 
 // Configurar view engine
-app.engine('handlebars', exphbs.engine());
+app.engine('handlebars', exphbs.engine({
+  defaultLayout: 'main',
+  runtimeOptions: {
+    allowProtoPropertiesByDefault: true,
+    allowProtoMethodsByDefault: true
+  }
+}));
 app.set('view engine', 'handlebars');
 
 // Middlewares

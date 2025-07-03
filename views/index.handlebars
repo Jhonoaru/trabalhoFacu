@@ -1,2 +1,28 @@
-<h1>Bem-vindo à página protegida!</h1>
-<a href="/logout">Sair</a>
+<div class="container py-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>📚 Mangás disponíveis</h2>
+    <a href="/logout" class="btn btn-outline-danger">Sair</a>
+  </div>
+
+  {{#if mangas.length}}
+  <div class="row">
+    {{#each mangas}}
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body">
+          <h5 class="card-title fw-bold">{{this.titulo}}</h5>
+          <p class="card-text"><strong>Autor:</strong> {{this.autor}}</p>
+          <p class="card-text"><strong>Preço:</strong> R$ {{this.preco}}</p>
+          <p class="card-text"><strong>Categoria:</strong> {{this.categoria}}</p>
+          <p class="card-text"><em>{{this.descricao}}</em></p>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{else}}
+  <div class="alert alert-info text-center" role="alert">
+    Nenhum mangá cadastrado ainda.
+  </div>
+  {{/if}}
+</div>

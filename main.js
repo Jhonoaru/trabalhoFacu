@@ -1,5 +1,5 @@
 const conectarBanco = require('./db');
-const Manga = require('./models/Manga');
+const Manga = require('./models/manga');
 const Cliente = require('./models/Cliente');
 const Categoria = require('./models/Categoria');
 const { logarErro } = require('./logger');
